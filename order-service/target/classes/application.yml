@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: order-service
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        partitioner.class: com.example.orders.partitioner.OrderPartitioner
+
+kafka:
+  topics:
+    new-orders: new_orders
+  partitions:
+    count: 3
+  replication:
+    factor: 1
