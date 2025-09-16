@@ -1,6 +1,5 @@
 package com.example.service;
 
-
 import com.example.model.EventType;
 import com.example.model.Order;
 import com.example.model.OrderEvent;

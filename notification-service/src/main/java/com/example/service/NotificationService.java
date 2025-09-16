@@ -19,8 +19,6 @@ import java.util.List;
 @Slf4j
 public class NotificationService {
 
-
-
     @KafkaListener(
             topics = "${kafka.topics.sent-orders}",
             groupId = "notification-group",
@@ -49,9 +47,8 @@ public class NotificationService {
 
         try {
 
-
             log.info("Notification sent successfully for order: {}", order.getId());
-            log.info("сервис нотификации оповестил :{}", order.getCustomerEmail());
+            log.info("сервис нотификации оповестил :{},{},{}", order.getCustomerEmail(),order.getStatus(),order.getTotalAmount());
 
         } catch (Exception e) {
             log.error("Failed to send notification for order {}: {}",
